@@ -7,7 +7,7 @@ const directives = {
   ...interaction
 }
 
-export const installDirectives = (app) => {
+export default (app) => {
   Object.keys(directives).forEach((key) => {
     app.directive(key, directives[key])
   })
