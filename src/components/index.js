@@ -1,9 +1,11 @@
 // 全局注册 component
-import ListTable from './ListTable/index'
+import ListTable from './Table/ListTable/index'
+import TreeTable from './Table/TreeTable/index'
 import Pagination from './Pagination/index'
 
 const components = {
   ListTable,
+  TreeTable,
   Pagination
 }
 

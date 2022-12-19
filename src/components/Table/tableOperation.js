@@ -1,6 +1,4 @@
-import { ref } from 'vue'
-export const tableOperationHook = (emits) => {
-  const table = ref(null)
+export const tableOperationHook = (emits, tableRef) => {
   const handleSizeChange = (size) => {
     emits('size-change', size)
   }
@@ -22,19 +20,19 @@ export const tableOperationHook = (emits) => {
   }
 
   const clearSelection = () => {
-    table.value.clearSelection()
+    tableRef.value.clearSelection()
   }
 
   const clearFilter = (columnkey) => {
-    table.value.clearFilter(columnkey)
+    tableRef.value.clearFilter(columnkey)
   }
 
   const doLayout = () => {
-    table.value.doLayout()
+    tableRef.value.doLayout()
   }
 
   const onRowClick = (val) => {
-    table.value.toggleRowSelection(val)
+    tableRef.value.toggleRowSelection(val)
   }
 
   return {

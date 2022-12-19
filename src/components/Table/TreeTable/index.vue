@@ -1,16 +1,19 @@
 <template>
-  <div class="list-table">
-    <!-- 表格-按钮组 -->
-    <div v-if="$slots['table-header']" class="table-list__header">
+  <div class="tree-table">
+    <!-- 树形结构表格-按钮组 -->
+    <div v-if="$slots['table-header']" class="tree-table-header">
       <slot name="table-header" />
     </div>
-    <!-- 表格-数据展示 -->
-    <div class="list-table-content">
+    <!-- 树形结构表格-数据展示 -->
+    <div class="tree-table-content">
       <el-table
-        ref="table"
+        ref="treeTable"
         :border="border"
         :stripe="stripe"
         :data="tableData"
+        :row-key="rowKey"
+        :tree-props="treeProps"
+        :default-expand-all="defaultExpandAll"
         v-loading="tableLoading"
         @select="select"
         @select-all="selectAll"
@@ -71,8 +74,8 @@
         </template>
       </el-table>
     </div>
-    <!-- 列表表格-底部 -->
-    <div v-if="paginationConfig" class="list-table-footer">
+    <!-- 树形结构表格-底部 -->
+    <div v-if="paginationConfig" class="tree-table-footer">
       <pagination
         :style="footerStyle"
         :pagination="paginationConfig"
@@ -84,25 +87,29 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from 'vue'
-import variables from '@/styles/variables.scss'
-import Pagination from '@/components/Pagination/index'
-import { tableConfigHook } from './tableConfigHook'
-import { tableOperationHook } from './tableOperationHook'
+import { ref, defineProps, defineEmits } from 'vue'
+import { tableConfigHook } from '../tableConfig'
+import { tableOperationHook } from '../tableOperation'
 
 const props = defineProps({
+  indent: { type: Number },
   tableLoading: { type: Boolean },
   paginationConfig: { type: Object },
+  lazy: { type: Boolean, default: false },
+  load: { type: Function, default: null },
   indexWidth: { type: Number, default: 50 },
   stripe: { type: Boolean, default: false },
   border: { type: Boolean, default: false },
   tableData: { type: Array, required: true },
+  treeProps: { type: Object, required: true },
   showIndex: { type: Boolean, default: false },
   tableColumns: { type: Array, required: true },
   selectionWidth: { type: Number, default: 50 },
   renderHeader: { type: Function, default: null },
   showSelection: { type: Boolean, default: false },
-  searchParams: { type: Object, default: () => {} },
+  searchParams: { type: Object, default: () => { } },
+  rowKey: { type: [Function, String], default: 'id' },
+  defaultExpandAll: { type: Boolean, default: false },
   paginationPosition: {
     type: String,
     default: 'center',
@@ -125,6 +132,7 @@ const props = defineProps({
   }
 })
 
+const treeTable = ref(null)
 const emits = defineEmits([
   'select',
   'select-all',
@@ -144,9 +152,7 @@ const {
   clearFilter,
   doLayout,
   onRowClick
-} = tableOperationHook(emits)
+} = tableOperationHook(emits, treeTable)
 </script>
 
-<style lang="scss" scoped>
-@import '~@/styles/components/list-table.scss';
-</style>
+<style lang="scss" scoped></style>

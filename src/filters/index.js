@@ -1,5 +1,5 @@
 // 全局挂载过滤器
-import dayjs from 'daajs'
+import dayjs from 'dayjs'
 
 const dateTimeFilter = (val, format = 'YYYY-MM-DD') => {
   if (!isNaN(val)) {
