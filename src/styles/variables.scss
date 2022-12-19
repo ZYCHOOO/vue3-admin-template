@@ -1,0 +1,25 @@
+$menuText: #bfcbd9;
+$activeMenuText: #fff;
+$subActiveMenuText: #f4f4f5;
+
+$menuBg: #304156;
+$menuHover: #263445;
+
+$subMenuBg: #1f2d3d;
+$subMenuHover: #001528;
+
+$sideBarWidth: 210px;
+$hiddenSideBarWidth: 54px;
+$sidebarDuration: 0.28s;
+
+// js 与 scss 共享变量，通过 :export 导出，在 js 中可通过 esm 进行导入
+:export {
+  menuText: $menuText;
+  activeMenuText: $activeMenuText;
+  subActivemenuText: $subActiveMenuText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}

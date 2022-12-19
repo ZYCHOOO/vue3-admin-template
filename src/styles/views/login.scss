@@ -1,0 +1,78 @@
+$login-bg: #2f3a4b;
+$dark-gray: #889aa4;
+$light-gray: #eee;
+$cursor: #fff;
+
+.login-container {
+  min-height: 100%;
+  width: 100%;
+  background-color: $login-bg;
+  overflow: hidden;
+
+  .login-form {
+    margin: 0 auto;
+    padding: 160px 35px 0;
+    position: relative;
+    width: 520px;
+    overflow: hidden;
+
+    :deep .el-form-item {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      color: #454545;
+    }
+
+    :deep .el-input {
+      display: inline-block;
+      height: 47px;
+      width: 85%;
+
+      &__wrapper {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      input {
+        padding: 12px 5px 12px 15px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        caret-color: $cursor;
+        color: $light-gray;
+      }
+    }
+    &__title {
+      position: relative;
+      margin: 0 auto 40px auto;
+      font-size: 26px;
+      text-align: center;
+      font-weight: bold;
+      color: $light-gray;
+    }
+
+    &__btn {
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+
+  .svg-container {
+    display: inline-block;
+    padding: 6px 5px 6px 15px;
+    vertical-align: middle;
+    color: $dark-gray;
+  }
+
+  .show-pwd {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: $dark-gray;
+  }
+}
