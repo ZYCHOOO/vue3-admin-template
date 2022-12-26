@@ -1,53 +1,38 @@
-import { getQueryString } from '@/utils/index'
+import store from '@/store'
+
+const tokens = {
+  admin: {
+    token: 'admin-token-12345'
+  },
+  user: {
+    token: 'user-token-12345'
+  }
+}
 
 const profiles = {
-  en: {
+  'admin-token-12345': {
     avatar:
       'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    id: '612710a9ec87aa543c9c3420',
+    id: '123456789',
     permission: {
-      menus: [
-        'userManage',
-        'roleList',
-        'permissionList',
-        'articleRanking',
-        'articleCreate'
-      ],
-      points: [
-        'distributeRole',
-        'importUser',
-        'removeUser',
-        'distributePermission'
-      ]
-    },
-    role: [{ id: '1', title: 'Super administrator' }],
-    title: 'Super Administrator',
-    username: 'super-admin',
-    _id: '638cfc40dc0ccf437cb441db'
-  },
-  zh: {
-    avatar:
-      'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    id: '612710a9ec87aa543c9c3420',
-    permission: {
-      menus: [
-        'userManage',
-        'roleList',
-        'permissionList',
-        'articleRanking',
-        'articleCreate'
-      ],
-      points: [
-        'distributeRole',
-        'importUser',
-        'removeUser',
-        'distributePermission'
-      ]
+      menus: ['userManage', 'extension']
     },
     role: [{ id: '1', title: '超级管理员' }],
     title: '超级管理员',
     username: 'super-admin',
-    _id: '638cfc40dc0ccf437cb441db'
+    _id: '123456789'
+  },
+  'user-token-12345': {
+    avatar:
+      'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    id: '987654321',
+    permission: {
+      menus: ['extension']
+    },
+    role: [{ id: '2', title: '普通用户' }],
+    title: '普通用户',
+    username: 'user',
+    _id: '987654321'
   }
 }
 
@@ -57,12 +42,12 @@ export default [
     url: '/sys/login',
     type: 'post',
     response: (config) => {
+      const { username } = config.body
+      const { token } = tokens[username]
       return {
         code: 200,
         success: true,
-        data: {
-          token: 'd3fe4b02-4fe3-44ea-b4ba-2047539bef2e'
-        }
+        data: { token }
       }
     }
   },
@@ -72,20 +57,19 @@ export default [
     url: '/sys/profile',
     type: 'get',
     response: (config) => {
-      const lang = getQueryString(config.query, 'lang')
       return {
         code: 200,
         success: true,
-        data: profiles[lang]
+        data: profiles[store.getters.token]
       }
     }
   },
 
   // user logout
   {
-    url: '/vue3-h5-template/user/logout',
+    url: '/sys/logout',
     type: 'post',
-    response: (_) => {
+    response: () => {
       return {
         code: 200,
         data: 'success'
