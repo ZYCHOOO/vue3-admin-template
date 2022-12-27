@@ -20,6 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@toast-ui/editor": "^3.0.2",
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-plugin-eslint": "~4.5.6",
     "@vue/cli-plugin-router": "~4.5.6",
@@ -41,7 +42,10 @@
     "md5": "^2.3.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-cli-plugin-element-plus": "~0.0.13"
+    "svg-sprite-loader": "^6.0.9",
+    "vue-cli-plugin-element-plus": "~0.0.13",
+    "vue-i18n": "^9.2.2",
+    "wangeditor": "^4.7.6"
   },
   "config": {
     "commitizen": {

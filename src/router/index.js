@@ -1,8 +1,11 @@
 import store from '@/store'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import articleRoutes from './modules/articleManage'
+import chartRoutes from './modules/chartManage'
+import userRoutes from './modules/userManage'
 
 // 私有路由表
-export const privateRoutes = []
+export const privateRoutes = [...articleRoutes, ...chartRoutes, ...userRoutes]
 
 // 公开路由表
 export const publicRoutes = [

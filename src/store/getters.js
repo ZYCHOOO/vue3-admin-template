@@ -1,12 +1,20 @@
-import variables from '@/styles/variables.scss'
-
-export default {
+const getters = {
   token: (state) => state.user.token,
   hasUserInfo: (state) => {
     // return 内容 true，表示用户信息存在
     return JSON.stringify(state.user.userInfo) !== '{}'
   },
+  cssVar: (state) => {
+    return {
+      ...state.theme.variables
+    }
+  },
   userInfo: (state) => state.user.userInfo,
-  cssVar: () => variables,
-  sidebarOpened: (state) => state.app.sidebarOpened
+  sidebarOpened: (state) => state.app.sidebarOpened,
+  language: (state) => state.app.language,
+  mainColor: (state) => state.theme.mainColor,
+  tagViewList: (state) => state.app.tagViewList,
+  permission: (state) => state.user.permission
 }
+
+export default getters

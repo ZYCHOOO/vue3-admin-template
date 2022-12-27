@@ -15,7 +15,7 @@ const profiles = {
       'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
     id: '123456789',
     permission: {
-      menus: ['userManage', 'extension']
+      menus: ['userManage', 'articleManage', 'chartManage']
     },
     role: [{ id: '1', title: '超级管理员' }],
     title: '超级管理员',
