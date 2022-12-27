@@ -3,10 +3,16 @@ import ListTable from './Table/ListTable/index'
 import TreeTable from './Table/TreeTable/index'
 import Pagination from './Pagination/index'
 
+import Markdown from './Markdown/index'
+import Editor from './Editor/index'
+
 const components = {
   ListTable,
   TreeTable,
-  Pagination
+  Pagination,
+
+  Editor,
+  Markdown
 }
 
 export default (app) => {

@@ -15,6 +15,7 @@ import { initMockServer } from '@/mock/mock-server'
 import installDirectives from '@/directives/index'
 import installComponents from '@/components/index'
 import installFilters from '@/filters/index'
+import installIcons from '@/assets/icons'
 
 initMockServer()
 
@@ -23,6 +24,7 @@ installElementPlus(app)
 installDirectives(app)
 installComponents(app)
 installFilters(app)
+installIcons(app)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
