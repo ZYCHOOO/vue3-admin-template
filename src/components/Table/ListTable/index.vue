@@ -95,7 +95,7 @@ const props = defineProps({
   paginationConfig: { type: Object },
   indexWidth: { type: Number, default: 50 },
   stripe: { type: Boolean, default: false },
-  border: { type: Boolean, default: false },
+  border: { type: Boolean, default: true },
   tableData: { type: Array, required: true },
   showIndex: { type: Boolean, default: false },
   tableColumns: { type: Array, required: true },

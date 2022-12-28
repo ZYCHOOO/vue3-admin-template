@@ -36,6 +36,10 @@ const initEditor = () => {
   }
 }
 
+const getContent = () => {
+  return mkEditor.getHTML()
+}
+
 </script>
 
 <style lang="scss" scoped>

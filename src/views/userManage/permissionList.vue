@@ -36,5 +36,7 @@ getData(1, 10, getPermissionData)
 </script>
 
 <style lang="scss" scoped>
-
+  .permission-list {
+    @include list;
+  }
 </style>

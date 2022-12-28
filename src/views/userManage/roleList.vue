@@ -41,5 +41,7 @@ getData(1, 10, getRoleData)
 </script>
 
 <style lang="scss" scoped>
-
+  .role-list {
+    @include list;
+  }
 </style>

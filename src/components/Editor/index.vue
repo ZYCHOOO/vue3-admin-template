@@ -36,6 +36,10 @@ const initEditor = () => {
   }
 }
 
+const getContent = () => {
+  return editor.txt.html()
+}
+
 </script>
 
 <style lang="scss" scoped>

@@ -67,15 +67,18 @@ getData(1, 10, getUserManageData)
 </script>
 
 <style lang="scss" scoped>
-.user-manage {
-  &-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+  .user-list {
+    @include list;
+    .user-manage {
+      &-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      &-header {
+        @include flex-row;
+        justify-content: flex-end;
+      }
+    }
   }
-  &-header {
-    @include flex-row;
-    justify-content: flex-end;
-  }
-}
 </style>

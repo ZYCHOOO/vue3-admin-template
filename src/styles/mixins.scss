@@ -66,3 +66,9 @@
     border-radius: 20px;
   }
 }
+
+@mixin list {
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 12px 0;
+}

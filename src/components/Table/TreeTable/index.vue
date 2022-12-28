@@ -99,7 +99,7 @@ const props = defineProps({
   load: { type: Function, default: null },
   indexWidth: { type: Number, default: 50 },
   stripe: { type: Boolean, default: false },
-  border: { type: Boolean, default: false },
+  border: { type: Boolean, default: true },
   tableData: { type: Array, required: true },
   treeProps: { type: Object, required: true },
   showIndex: { type: Boolean, default: false },
