@@ -11,7 +11,7 @@
       :pagination-config="paginationConfig"
     >
       <template #operate="{ row }">
-        <el-button type="primary">查 看</el-button>
+        <el-button type="primary" @click="handleDetail(row.id)">查 看</el-button>
         <el-button type="danger">删 除</el-button>
       </template>
     </list-table>
@@ -19,11 +19,13 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { ref, getCurrentInstance } from 'vue'
 import { commonTable } from '@/hooks/commonTable'
 import { getArticleList } from '@/api/articleManage'
 import { ARTICLE_LIST_COLUMNS } from '@/constant/tableColumns'
 
+const router = useRouter()
 const { proxy } = getCurrentInstance()
 const { tableData, tableLoading, tableColumns, paginationConfig, getData } = commonTable()
 
@@ -42,12 +44,15 @@ const getArticleData = async () => {
   try {
     tableLoading.value = true
     const res = await getArticleList()
-    console.log('sss', res)
     tableData.value = res.data
     paginationConfig.value.total = res.total
   } finally {
     tableLoading.value = false
   }
+}
+
+const handleDetail = (id) => {
+  router.push(`/article-detail/${id}`)
 }
 
 getData(1, 10, getArticleData)

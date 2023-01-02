@@ -27,8 +27,8 @@ const getTitle = (route) => {
     const routeArr = route.path.split('/')
     title = routeArr[routeArr.length - 1]
   } else {
-    // title = generateTitle(route.meta.title)
-    title = route.meta.title
+    title = generateTitle(route.meta.title)
+    // title = route.meta.title
   }
   return title
 }

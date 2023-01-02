@@ -6,25 +6,25 @@ export default [
     name: 'articleManage',
     component: Layout,
     redirect: '/article/article-create',
-    meta: { title: '文章管理', icon: 'article' },
+    meta: { title: 'article', icon: 'article' },
     children: [
       {
         path: '/article-create',
         name: 'articleCreate',
         component: () => import('@/views/articleManage/articleCreate'),
-        meta: { title: '创建文章', icon: 'article' }
+        meta: { title: 'articleCreate', icon: 'article' }
       },
       {
         path: '/article-manage',
         name: 'articleManage',
         component: () => import('@/views/articleManage/articleManage'),
-        meta: { title: '文章管理', icon: 'article' }
+        meta: { title: 'articleManage', icon: 'article' }
       },
       {
-        path: '/article-detail',
+        path: '/article-detail/:id',
         name: 'articleDetail',
         component: () => import('@/views/articleManage/articleDetail'),
-        meta: { title: '文章详情', icon: '' }
+        meta: { title: 'articleDetail', icon: '' }
       }
     ]
   }

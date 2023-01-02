@@ -3,8 +3,8 @@ import { watch } from 'vue'
 import i18n from '@/i18n/index'
 
 export function generateTitle (title) {
-  // return i18n.global.t(`msg.route.${title}`)
-  return title
+  i18n.global.locale.value = store.getters.language
+  return i18n.global.t(`route.${title}`)
 }
 
 /*

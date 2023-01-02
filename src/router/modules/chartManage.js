@@ -11,7 +11,7 @@ export default [
         path: '/chart-manage',
         name: 'chartManage',
         component: () => import('@/views/chartManage/chartManage'),
-        meta: { title: '可视化管理', icon: 'chart' }
+        meta: { title: 'chartManage', icon: 'chart' }
       }
     ]
   }

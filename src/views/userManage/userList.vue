@@ -19,9 +19,11 @@
         }}</el-tag>
       </template>
       <template #operate="{ row }">
-        <el-button type="primary">查 看</el-button>
-        <el-button type="default" @click="handleRole(row.id)">角 色</el-button>
-        <el-button type="danger">删 除</el-button>
+        <el-button type="primary">{{ $t('btn.check') }}</el-button>
+        <el-button type="default" @click="handleRole(row.id)">{{
+          $t('btn.role')
+        }}</el-button>
+        <el-button type="danger">{{ $t('btn.delete') }}</el-button>
       </template>
     </list-table>
   </div>
@@ -33,6 +35,9 @@ import { ref, getCurrentInstance } from 'vue'
 import { getUserManageList } from '@/api/userManage'
 import { commonTable } from '@/hooks/commonTable'
 import { USER_MANAGE_COLUMNS } from '@/constant/tableColumns'
+import { getLanguage } from '@/i18n/index'
+
+console.log('1111', getLanguage())
 
 const router = useRouter()
 const { proxy } = getCurrentInstance()
@@ -63,22 +68,21 @@ const getUserManageData = async () => {
 }
 
 getData(1, 10, getUserManageData)
-
 </script>
 
 <style lang="scss" scoped>
-  .user-list {
-    @include list;
-    .user-manage {
-      &-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-      }
-      &-header {
-        @include flex-row;
-        justify-content: flex-end;
-      }
+.user-list {
+  @include list;
+  .user-manage {
+    &-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    &-header {
+      @include flex-row;
+      justify-content: flex-end;
     }
   }
+}
 </style>

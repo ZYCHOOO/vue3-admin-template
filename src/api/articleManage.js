@@ -8,3 +8,12 @@ export const getArticleList = (params) => {
     params
   })
 }
+
+// 获取文章详情
+export const getArticleDetail = (params) => {
+  return request({
+    url: '/article/detail',
+    method: 'GET',
+    params
+  })
+}
