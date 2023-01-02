@@ -12,7 +12,7 @@
     </el-tabs>
 
     <div class="article-create-footer">
-      <el-button type="primary" class="submit-btn">提 交</el-button>
+      <el-button type="primary" class="submit-btn">{{ $t('btn.submit') }}</el-button>
     </div>
   </div>
 </template>

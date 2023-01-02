@@ -9,21 +9,22 @@
       :pagination-config="paginationConfig"
     >
       <template #operate="{ row }">
-        <el-button type="primary">分配权限</el-button>
+        <el-button type="primary">{{ $t('btn.distributePermission') }}</el-button>
       </template>
     </list-table>
   </div>
 </template>
 
 <script setup>
+import { watchSwitchLang } from '@/utils/i18n'
 import { getRoleList } from '@/api/userManage'
 import { commonTable } from '@/hooks/commonTable'
-import { ROLE_LIST_COLUMNS } from '@/constant/tableColumns'
+import { getTableColumns } from '@/constant/tableColumns'
 
 const { tableData, tableLoading, tableColumns, paginationConfig, getData } =
   commonTable()
 
-tableColumns.value = ROLE_LIST_COLUMNS
+tableColumns.value = getTableColumns('ROLE_LIST_COLUMNS')
 
 const getRoleData = async () => {
   try {
@@ -38,6 +39,10 @@ const getRoleData = async () => {
 
 getData(1, 10, getRoleData)
 
+watchSwitchLang(
+  () => { getData(1, 10, getRoleData) },
+  () => { tableColumns.value = getTableColumns('ROLE_LIST_COLUMNS') }
+)
 </script>
 
 <style lang="scss" scoped>

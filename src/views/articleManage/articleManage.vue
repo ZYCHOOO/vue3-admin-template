@@ -11,8 +11,8 @@
       :pagination-config="paginationConfig"
     >
       <template #operate="{ row }">
-        <el-button type="primary" @click="handleDetail(row.id)">查 看</el-button>
-        <el-button type="danger">删 除</el-button>
+        <el-button type="primary" @click="handleDetail(row.id)">{{ $t('btn.check') }}</el-button>
+        <el-button type="danger">{{ $t('btn.delete') }}</el-button>
       </template>
     </list-table>
   </div>
@@ -21,15 +21,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { ref, getCurrentInstance } from 'vue'
+import { watchSwitchLang } from '@/utils/i18n'
 import { commonTable } from '@/hooks/commonTable'
 import { getArticleList } from '@/api/articleManage'
-import { ARTICLE_LIST_COLUMNS } from '@/constant/tableColumns'
+import { getTableColumns } from '@/constant/tableColumns'
 
 const router = useRouter()
 const { proxy } = getCurrentInstance()
 const { tableData, tableLoading, tableColumns, paginationConfig, getData } = commonTable()
 
-tableColumns.value = ARTICLE_LIST_COLUMNS
+tableColumns.value = getTableColumns('ARTICLE_LIST_COLUMNS')
 
 const formatter = (row, column, cellValue, index) => {
   const rowKey = column.property
@@ -56,6 +57,11 @@ const handleDetail = (id) => {
 }
 
 getData(1, 10, getArticleData)
+
+watchSwitchLang(
+  () => { getData(1, 10, getArticleData) },
+  () => { tableColumns.value = getTableColumns('ARTICLE_LIST_COLUMNS') }
+)
 </script>
 
 <style lang="scss" scoped>

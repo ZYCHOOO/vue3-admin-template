@@ -11,15 +11,15 @@
 </template>
 
 <script setup>
-import {} from 'vue'
+import { watchSwitchLang } from '@/utils/i18n'
 import { commonTable } from '@/hooks/commonTable'
 import { getPermissionList } from '@/api/userManage'
-import { PERMISSION_LIST_COLUMNS } from '@/constant/tableColumns'
+import { getTableColumns } from '@/constant/tableColumns'
 
 const { tableData, tableLoading, tableColumns, paginationConfig, getData } =
   commonTable()
 
-tableColumns.value = PERMISSION_LIST_COLUMNS
+tableColumns.value = getTableColumns('PERMISSION_LIST_COLUMNS')
 
 const getPermissionData = async () => {
   try {
@@ -33,6 +33,10 @@ const getPermissionData = async () => {
 
 getData(1, 10, getPermissionData)
 
+watchSwitchLang(
+  () => { getData(1, 10, getPermissionData) },
+  () => { tableColumns.value = getTableColumns('PERMISSION_LIST_COLUMNS') }
+)
 </script>
 
 <style lang="scss" scoped>

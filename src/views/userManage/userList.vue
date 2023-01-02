@@ -32,19 +32,17 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { ref, getCurrentInstance } from 'vue'
-import { getUserManageList } from '@/api/userManage'
+import { watchSwitchLang } from '@/utils/i18n'
 import { commonTable } from '@/hooks/commonTable'
-import { USER_MANAGE_COLUMNS } from '@/constant/tableColumns'
-import { getLanguage } from '@/i18n/index'
-
-console.log('1111', getLanguage())
+import { getUserManageList } from '@/api/userManage'
+import { getTableColumns } from '@/constant/tableColumns'
 
 const router = useRouter()
 const { proxy } = getCurrentInstance()
 const { tableData, tableLoading, tableColumns, paginationConfig, getData } =
   commonTable()
 
-tableColumns.value = USER_MANAGE_COLUMNS
+tableColumns.value = getTableColumns('USER_MANAGE_COLUMNS')
 
 const formatter = (row, column, cellValue, index) => {
   const rowKey = column.property
@@ -68,6 +66,11 @@ const getUserManageData = async () => {
 }
 
 getData(1, 10, getUserManageData)
+
+watchSwitchLang(
+  () => { getData(1, 10, getUserManageData) },
+  () => { tableColumns.value = getTableColumns('USER_MANAGE_COLUMNS') }
+)
 </script>
 
 <style lang="scss" scoped>

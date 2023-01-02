@@ -27,8 +27,11 @@ export default {
     switchLangSuccess: 'language switched!'
   },
   btn: {
+    submit: 'submit',
     check: 'check',
     role: 'role',
-    delete: 'delete'
-  }
+    delete: 'delete',
+    distributePermission: 'distribute permission'
+  },
+  placeholder: {}
 }

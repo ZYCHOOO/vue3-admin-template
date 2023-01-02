@@ -26,8 +26,11 @@ export default {
     switchLangSuccess: '语言切换成功！'
   },
   btn: {
+    submit: '提交',
     check: '查看',
     role: '角色',
-    delete: '删除'
-  }
+    delete: '删除',
+    distributePermission: '分配权限'
+  },
+  placeholder: {}
 }

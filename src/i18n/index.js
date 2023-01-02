@@ -12,7 +12,7 @@ const messages = {
   }
 }
 
-export function getLanguage () {
+function getLanguage () {
   return store && store.getters && store.getters.language
 }
 
@@ -24,14 +24,7 @@ const i18n = createI18n({
   silentFallbackWarn: true,
   locale: getLanguage(),
   fallbackLocale: 'zh',
-  messages: {
-    en: {
-      ...enLocale
-    },
-    zh: {
-      ...zhLocale
-    }
-  }
+  messages
 })
 
 export default i18n
