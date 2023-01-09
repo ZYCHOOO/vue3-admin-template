@@ -47,7 +47,6 @@ const handleSelectLanguage = (lang) => {
   // 切换 i18n 中的 locale
   i18n.locale.value = lang
   store.commit('app/setLanguage', lang)
-  console.log('sss', i18n.t('toast.switchLangSuccess'))
   ElMessage.success(i18n.t('toast.switchLangSuccess'))
 }
 </script>

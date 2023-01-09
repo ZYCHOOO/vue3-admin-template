@@ -3,6 +3,8 @@
     <hamburger class="hamburger" />
     <bread-crumb class="breadcrumb-container" />
     <div class="right-menu">
+      <!-- 全屏切换 -->
+      <screen-full class="right-menu-item hover-effect" />
       <!-- 切换语言 -->
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
@@ -38,6 +40,7 @@
 <script setup>
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index'
+import ScreenFull from '@/components/ScreenFull/index'
 import LangSelect from '@/components/LangSelect/index'
 import BreadCrumb from '@/components/BreadCrumb/index'
 
