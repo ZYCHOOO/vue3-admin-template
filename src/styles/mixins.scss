@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @mixin flex-align-center {
   display: flex;
   align-items: center;

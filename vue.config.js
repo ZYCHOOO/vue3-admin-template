@@ -20,6 +20,7 @@ module.exports = {
       sass: {
         prependData: `
           @import "~@/styles/mixins.scss";
+          @import "~@/styles/variables.scss";
         `
       }
     }

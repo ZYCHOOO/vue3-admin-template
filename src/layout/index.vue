@@ -31,21 +31,19 @@ import {} from 'vue'
 </script>
 
 <style lang="scss" scoped>
-@import '~@/styles/mixins.scss';
-@import '~@/styles/variables.scss';
-.app-wrapper {
-  @include clearfix;
-  @include relative;
-}
-.fixed-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: calc(100% - #{$sideBarWidth});
-  z-index: 9;
-  transition: width #{$sidebarDuration};
-}
-.hide-sidebar .fixed-header {
-  width: calc(100% - #{$hiddenSideBarWidth});
-}
+  .app-wrapper {
+    @include clearfix;
+    @include relative;
+  }
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - $sideBarWidth);
+    z-index: 9;
+    transition: width $sidebarDuration;
+  }
+  .hide-sidebar .fixed-header {
+    width: calc(100% - $hiddenSideBarWidth);
+  }
 </style>

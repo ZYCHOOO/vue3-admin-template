@@ -33,5 +33,28 @@ export default {
     delete: 'delete',
     distributePermission: 'distribute permission'
   },
+  guide: {
+    close: 'close',
+    next: 'next',
+    prev: 'previous',
+    guideTitle: 'guidance',
+    guideDesc: 'Turn on the boot function',
+    hamburgerTitle: 'Hamburger button',
+    hamburgerDesc: 'Open and close the left menu',
+    breadcrumbTitle: 'Bread crumbs',
+    breadcrumbDesc: 'Indicates the current page position',
+    searchTitle: 'search',
+    searchDesc: 'Page link search',
+    fullTitle: 'full screen',
+    fullDesc: 'Page display switching',
+    themeTitle: 'theme',
+    themeDesc: 'Change project theme',
+    langTitle: 'globalization',
+    langDesc: 'Language switch',
+    tagTitle: 'Label',
+    tagDesc: 'Opened page tab',
+    sidebarTitle: 'menu',
+    sidebarDesc: 'Project function menu'
+  },
   placeholder: {}
 }
