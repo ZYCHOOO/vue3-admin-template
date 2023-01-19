@@ -4,3 +4,10 @@
 @import './transition.scss';
 @import './variables.scss';
 @import './components/sidebar.scss';
+
+// 解决 driver 色块问题
+div#driver-highlighted-element-stage,
+div#driver-page-overlay {
+  background: transparent !important;
+  outline: 5000px solid rgba(0, 0, 0, 0.75);
+}
