@@ -32,6 +32,11 @@ export default {
     delete: '删除',
     distributePermission: '分配权限'
   },
+  universal: {
+    title: '提示',
+    confirm: '确定',
+    cancel: '取消'
+  },
   guide: {
     close: '关闭',
     next: '下一个',
@@ -54,6 +59,10 @@ export default {
     tagDesc: '已打开页面标签',
     sidebarTitle: '菜单',
     sidebarDesc: '项目功能菜单'
+  },
+  theme: {
+    themeColorChange: '主题色更换',
+    themeChange: '主题更换'
   },
   placeholder: {}
 }

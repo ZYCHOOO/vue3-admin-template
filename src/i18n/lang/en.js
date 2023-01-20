@@ -27,11 +27,17 @@ export default {
     switchLangSuccess: 'language switched!'
   },
   btn: {
+    title: 'caution',
     submit: 'submit',
     check: 'check',
     role: 'role',
     delete: 'delete',
     distributePermission: 'distribute permission'
+  },
+  universal: {
+    title: 'caution',
+    confirm: 'confirm',
+    cancel: 'cancel'
   },
   guide: {
     close: 'close',
@@ -55,6 +61,10 @@ export default {
     tagDesc: 'Opened page tab',
     sidebarTitle: 'menu',
     sidebarDesc: 'Project function menu'
+  },
+  theme: {
+    themeColorChange: 'Theme Color Change',
+    themeChange: 'Theme Change'
   },
   placeholder: {}
 }

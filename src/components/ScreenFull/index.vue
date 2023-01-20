@@ -1,7 +1,7 @@
 <template>
   <div class="screen-full" @click="toggleScreenFull">
     <svg-icon
-      :id="'guide-screen'"
+      id="guide-screen"
       :icon="isFullScreen ? 'exit-fullscreen' : 'fullscreen'"
     />
   </div>

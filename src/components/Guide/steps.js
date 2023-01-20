@@ -41,7 +41,7 @@ const steps = (i18n) => {
       }
     },
     {
-      element: '#guide-hambburger',
+      element: '#guide-hamburger',
       popover: {
         title: i18n.t('guide.hamburgerTitle'),
         description: i18n.t('guide.hamburgerDesc'),

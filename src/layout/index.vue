@@ -5,6 +5,7 @@
   >
     <!-- 左侧menu -->
     <side-bar
+      id="guide-sidebar"
       class="sidebar-container"
       :style="{ background: variables.menuBg }"
     />
