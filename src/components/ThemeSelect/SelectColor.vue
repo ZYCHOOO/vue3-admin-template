@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    :title="$t('msg.universal.title')"
+    :title="$t('universal.title')"
     :model-value="modelValue"
     @close="handleClose"
     width="22%"

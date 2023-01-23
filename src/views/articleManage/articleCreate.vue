@@ -7,12 +7,12 @@
         <markdown />
       </el-tab-pane>
       <el-tab-pane label="富文本编辑器" name="editor">
-        <editor />
+        <editor v-model="content" />
       </el-tab-pane>
     </el-tabs>
 
     <div class="article-create-footer">
-      <el-button type="primary" class="submit-btn">{{ $t('btn.submit') }}</el-button>
+      <el-button type="primary" class="submit-btn" @click="test">{{ $t('btn.submit') }}</el-button>
     </div>
   </div>
 </template>
@@ -21,7 +21,12 @@
 import { ref } from 'vue'
 
 const title = ref()
+const content = ref('')
 const activeName = ref('markdown')
+
+const test = () => {
+  console.log(content.value, '12312312')
+}
 
 </script>
 
