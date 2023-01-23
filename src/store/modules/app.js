@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: () => ({
     sidebarOpened: true,
-    language: getStorage(LANG_KEY) || 'zh',
+    language: getStorage(LANG_KEY) || 'zh-CN',
     tagViewList: getStorage(TAG_VIEW_KEY) || []
   }),
   mutations: {

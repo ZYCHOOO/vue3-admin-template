@@ -1,7 +1,7 @@
 import store from '@/store'
 
 const userList = {
-  zh: [
+  'zh-CN': [
     {
       id: '11111',
       avatar:
@@ -80,7 +80,7 @@ const userList = {
 }
 
 const roleList = {
-  zh: [
+  'zh-CN': [
     {
       id: '1',
       title: '超级管理员',
@@ -117,7 +117,7 @@ const roleList = {
 }
 
 const permissionList = {
-  zh: [
+  'zh-CN': [
     {
       id: '1',
       permissionName: '用户管理',

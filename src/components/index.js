@@ -4,8 +4,7 @@ import TreeTable from './Table/TreeTable/index'
 import Pagination from './Pagination/index'
 
 import Markdown from './Markdown/index'
-// import Editor from './Editor/index'
-import Editor from './Editor/EditorNxt'
+import Editor from './Editor/index'
 
 const components = {
   ListTable,

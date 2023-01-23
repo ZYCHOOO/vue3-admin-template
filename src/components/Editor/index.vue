@@ -1,47 +1,63 @@
 <template>
-  <div class="editor-container">
-    <div id="editor-box" />
+  <div style="border: 1px solid #ccc">
+    <Toolbar
+      :editor="editorRef"
+      :defaultConfig="toolbarConfig"
+      :mode="mode"
+      style="border-bottom: 1px solid #ccc"
+    />
+    <Editor
+      :defaultConfig="editorConfig"
+      :mode="mode"
+      v-model="valueHtml"
+      style="height: 400px; overflow-y: hidden"
+      @onCreated="handleCreated"
+    />
   </div>
 </template>
 
 <script setup>
-import E from 'wangeditor'
-import { defineProps, onMounted, watch } from 'vue'
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
+
+import { onBeforeUnmount, ref, shallowRef, onMounted, computed, defineProps, defineEmits } from 'vue'
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 
 const props = defineProps({
-  content: { type: String }
+  mode: { type: String, default: 'simple' },
+  height: { type: Number, default: 320 },
+  modelValue: { type: String, default: '' }
 })
 
-// 初始化 editor 实例
-let editor
-// 获取 dom
-let el
+const emits = defineEmits(['update:modelValue'])
 
-onMounted(() => {
-  el = document.querySelector('#editor-box')
-  initEditor()
-})
-
-const initEditor = () => {
-  editor = new E(el)
-  editor.config.zIndex = 1
-  // 菜单栏提示
-  editor.config.showMenuTooltips = true
-  editor.config.menuTooltipPosition = 'down'
-  editor.create()
-
-  // 数据回显
-  if (props.content) {
-    editor.txt.html(props.content)
+// 内容 HTML
+const valueHtml = computed({
+  get () {
+    return props.modelValue
+  },
+  set (value) {
+    console.log('value', value)
+    // 子组件传值给父组件
+    emits('update:modelValue', value)
   }
+})
+
+// 编辑器实例，必须用 shallowRef
+const editorRef = shallowRef()
+const toolbarConfig = {}
+const editorConfig = {
+  placeholder: '请输入内容...',
+  MENU_CONF: {}
 }
 
-const getContent = () => {
-  return editor.txt.html()
+// 组件销毁时，也及时销毁编辑器
+onBeforeUnmount(() => {
+  const { value } = editorRef
+  if (value === null) return
+  value.destroy()
+})
+const handleCreated = (editor) => {
+  editorRef.value = editor // 记录 editor 实例，重要！
 }
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -11,7 +11,7 @@
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item :disabled="language === 'zh'" command="zh"
+        <el-dropdown-item :disabled="language === 'zh-CN'" command="zh-CN"
           >中文</el-dropdown-item
         >
         <el-dropdown-item :disabled="language === 'en'" command="en"

@@ -7,7 +7,7 @@ const messages = {
   en: {
     ...enLocale
   },
-  zh: {
+  'zh-CN': {
     ...zhLocale
   }
 }
@@ -23,7 +23,7 @@ const i18n = createI18n({
   globalInjection: true,
   silentFallbackWarn: true,
   locale: getLanguage(),
-  fallbackLocale: 'zh',
+  fallbackLocale: 'zh-CN',
   messages
 })
 
