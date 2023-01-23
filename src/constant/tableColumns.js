@@ -2,7 +2,7 @@ import store from '@/store'
 
 const TABLE_COLUMNS = {
   USER_MANAGE_COLUMNS: {
-    'zh-CN': [
+    zh: [
       { key: 'username', label: '姓名' },
       { key: 'mobile', label: '联系方式' },
       { slot: 'avatar', label: '头像' },
@@ -20,7 +20,7 @@ const TABLE_COLUMNS = {
     ]
   },
   ROLE_LIST_COLUMNS: {
-    'zh-CN': [
+    zh: [
       { key: 'title', label: '名称' },
       { key: 'desc', label: '描述' },
       { slot: 'operate', label: '操作', minWidth: 80 }
@@ -32,7 +32,7 @@ const TABLE_COLUMNS = {
     ]
   },
   PERMISSION_LIST_COLUMNS: {
-    'zh-CN': [
+    zh: [
       { key: 'permissionName', label: '权限名称' },
       { key: 'permissionMark', label: '权限标识' },
       { key: 'permissionDesc', label: '权限描述' }
@@ -44,7 +44,7 @@ const TABLE_COLUMNS = {
     ]
   },
   ARTICLE_LIST_COLUMNS: {
-    'zh-CN': [
+    zh: [
       { key: 'title', label: '标题' },
       { key: 'author', label: '作者' },
       { key: 'publishDate', label: '发布时间' },

@@ -21,11 +21,11 @@
 import { ref } from 'vue'
 
 const title = ref()
-const content = ref('')
+const content = ref('111')
 const activeName = ref('markdown')
 
 const test = () => {
-  console.log(content.value, '12312312')
+  console.log(content.value)
 }
 
 </script>

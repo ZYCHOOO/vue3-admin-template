@@ -2,7 +2,7 @@ import store from '@/store'
 import { getQueryString } from '@/utils/index'
 
 const articleList = {
-  'zh-CN': [
+  zh: [
     {
       id: '11111',
       author: 'ZYCHOOO',
@@ -95,7 +95,7 @@ export default [
         success: true,
         data: {
           total: 16,
-          data: articleList['zh-CN']
+          data: articleList.zh
         }
       }
     }

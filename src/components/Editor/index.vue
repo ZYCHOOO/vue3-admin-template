@@ -1,63 +1,54 @@
 <template>
-  <div style="border: 1px solid #ccc">
-    <Toolbar
-      :editor="editorRef"
-      :defaultConfig="toolbarConfig"
-      :mode="mode"
-      style="border-bottom: 1px solid #ccc"
-    />
-    <Editor
-      :defaultConfig="editorConfig"
-      :mode="mode"
-      v-model="valueHtml"
-      style="height: 400px; overflow-y: hidden"
-      @onCreated="handleCreated"
-    />
+  <div class="editor-container">
+    <div id="editor-box" />
   </div>
 </template>
 
 <script setup>
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import E from 'wangeditor'
+import i18next from 'i18next'
+import { useStore } from 'vuex'
+import { watchSwitchLang } from '@/utils/i18n'
+import { defineProps, defineEmits, onMounted, computed, watch } from 'vue'
 
-import { onBeforeUnmount, ref, shallowRef, onMounted, computed, defineProps, defineEmits } from 'vue'
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
-
+const store = useStore()
 const props = defineProps({
-  mode: { type: String, default: 'simple' },
-  height: { type: Number, default: 320 },
   modelValue: { type: String, default: '' }
 })
-
 const emits = defineEmits(['update:modelValue'])
 
-// 内容 HTML
-const valueHtml = computed({
-  get () {
-    return props.modelValue
-  },
-  set (value) {
-    console.log('value', value)
-    // 子组件传值给父组件
-    emits('update:modelValue', value)
+// 初始化 editor 实例
+let editor
+// 获取 dom
+let el
+
+onMounted(() => {
+  el = document.querySelector('#editor-box')
+  initEditor()
+  editor.txt.html(props.modelValue)
+})
+
+const initEditor = () => {
+  editor = new E(el)
+  editor.config.zIndex = 1
+  // 菜单栏提示
+  editor.config.showMenuTooltips = true
+  editor.config.menuTooltipPosition = 'down'
+  editor.config.onchange = function (newHtml) {
+    emits('update:modelValue', newHtml)
   }
-})
+  editor.config.onchangeTimeout = 500 // 修改为 500ms
 
-// 编辑器实例，必须用 shallowRef
-const editorRef = shallowRef()
-const toolbarConfig = {}
-const editorConfig = {
-  placeholder: '请输入内容...',
-  MENU_CONF: {}
+  editor.config.lang = store.getters.language === 'zh' ? 'zh-CN' : 'en'
+  editor.i18next = i18next
+
+  editor.create()
 }
 
-// 组件销毁时，也及时销毁编辑器
-onBeforeUnmount(() => {
-  const { value } = editorRef
-  if (value === null) return
-  value.destroy()
-})
-const handleCreated = (editor) => {
-  editorRef.value = editor // 记录 editor 实例，重要！
-}
-
+watchSwitchLang(
+  () => {
+    editor.destroy()
+    initEditor()
+  }
+)
 </script>
