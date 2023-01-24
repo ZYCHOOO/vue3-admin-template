@@ -4,7 +4,7 @@
 
     <el-tabs v-model="activeName" class="article-create-tabs">
       <el-tab-pane label="markdown 编辑器" name="markdown">
-        <markdown />
+        <markdown ref="markdownRef" />
       </el-tab-pane>
       <el-tab-pane label="富文本编辑器" name="editor">
         <editor v-model="content" />
@@ -24,8 +24,14 @@ const title = ref()
 const content = ref('111')
 const activeName = ref('markdown')
 
+const markdownRef = ref(null)
+
 const test = () => {
   console.log(content.value)
+  if (markdownRef.value) {
+    console.log(markdownRef.value.getContent())
+    console.log(markdownRef.value)
+  }
 }
 
 </script>

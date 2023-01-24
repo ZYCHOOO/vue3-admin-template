@@ -5,12 +5,16 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex'
 import MKEditor from '@toast-ui/editor'
+import '@toast-ui/editor/dist/i18n/zh-cn'
+import { watchSwitchLang } from '@/utils/i18n'
 import '@toast-ui/editor/dist/toastui-editor.css'
-import { defineProps, onMounted, watch } from 'vue'
+import { defineProps, onMounted, watch, defineExpose } from 'vue'
 
+const store = useStore()
 const props = defineProps({
-  content: { type: String }
+  content: { type: String, default: '' }
 })
 
 // editor 实例
@@ -19,15 +23,15 @@ let el
 
 onMounted(() => {
   el = document.querySelector('#markdown-box')
-  initEditor()
+  initMkeditor()
 })
 
-const initEditor = () => {
+const initMkeditor = () => {
   mkEditor = new MKEditor({
     el,
-    height: '500px',
+    height: `${props.height}px`,
     previewStyle: 'vertical',
-    language: 'zh-CH'
+    language: store.getters.language === 'zh' ? 'zh-CN' : 'en'
   })
 
   // 数据回显
@@ -40,8 +44,15 @@ const getContent = () => {
   return mkEditor.getHTML()
 }
 
+watchSwitchLang(
+  () => {
+    const currentContent = mkEditor.getHTML()
+    mkEditor.destroy()
+    initMkeditor()
+    mkEditor.setHTML(currentContent)
+  }
+)
+
+defineExpose({ getContent })
+
 </script>
-
-<style lang="scss" scoped>
-
-</style>

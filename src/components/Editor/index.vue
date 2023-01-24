@@ -9,7 +9,7 @@ import E from 'wangeditor'
 import i18next from 'i18next'
 import { useStore } from 'vuex'
 import { watchSwitchLang } from '@/utils/i18n'
-import { defineProps, defineEmits, onMounted, computed, watch } from 'vue'
+import { defineProps, defineEmits, onMounted } from 'vue'
 
 const store = useStore()
 const props = defineProps({
@@ -47,8 +47,10 @@ const initEditor = () => {
 
 watchSwitchLang(
   () => {
+    const currentContent = editor.txt.html()
     editor.destroy()
     initEditor()
+    editor.txt.html(currentContent)
   }
 )
 </script>
