@@ -14,6 +14,7 @@ import { defineProps, onMounted, watch, defineExpose } from 'vue'
 
 const store = useStore()
 const props = defineProps({
+  height: { type: Number, default: 500 },
   content: { type: String, default: '' }
 })
 

@@ -13,6 +13,7 @@ import { defineProps, defineEmits, onMounted } from 'vue'
 
 const store = useStore()
 const props = defineProps({
+  height: { type: Number, default: 400 },
   modelValue: { type: String, default: '' }
 })
 const emits = defineEmits(['update:modelValue'])
@@ -31,6 +32,8 @@ onMounted(() => {
 const initEditor = () => {
   editor = new E(el)
   editor.config.zIndex = 1
+  // 设置富文本高度
+  editor.config.height = props.height
   // 菜单栏提示
   editor.config.showMenuTooltips = true
   editor.config.menuTooltipPosition = 'down'
