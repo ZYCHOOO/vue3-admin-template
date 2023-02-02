@@ -6,13 +6,17 @@ import Pagination from './Pagination/index'
 import Markdown from './Markdown/index'
 import Editor from './Editor/index'
 
+import Chart from './Chart/index'
+
 const components = {
   ListTable,
   TreeTable,
   Pagination,
 
   Editor,
-  Markdown
+  Markdown,
+
+  Chart
 }
 
 export default (app) => {

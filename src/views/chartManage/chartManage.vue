@@ -1,6 +1,7 @@
 <template>
   <div class="chart-manage">
     可视化管理
+    <chart />
   </div>
 </template>
 
