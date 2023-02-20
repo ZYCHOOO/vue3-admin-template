@@ -28,7 +28,7 @@ export const publicRoutes = [
           import(
             /* webpackChunkName: 'dashboard' */ '@/views/dashboard/dashboard'
           ),
-        meta: { title: 'dashboard', icon: 'user' }
+        meta: { title: 'dashboard', icon: 'dashboard' }
       },
       // 404 页面
       {
