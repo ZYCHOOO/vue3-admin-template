@@ -11,3 +11,15 @@ div#driver-page-overlay {
   background: transparent !important;
   outline: 5000px solid rgba(0, 0, 0, 0.75);
 }
+
+// 实现 element-plus 官网 header
+.element-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 48px;
+  background-image: radial-gradient(transparent 1px, #fff 1px);
+  background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(4px);
+  pointer-events: none;
+}
