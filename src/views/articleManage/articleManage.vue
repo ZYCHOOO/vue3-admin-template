@@ -34,7 +34,7 @@ tableColumns.value = getTableColumns('ARTICLE_LIST_COLUMNS')
 
 const formatter = (row, column, cellValue, index) => {
   const rowKey = column.property
-  if (rowKey === 'openTime') {
+  if (rowKey === 'publishDate') {
     return proxy.$filters.dateTimeFilter(row[rowKey])
   } else {
     return row[rowKey] || '--'

@@ -12,17 +12,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
 import { getArticleList } from '@/api/articleManage'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 const articleData = ref([])
+const { proxy } = getCurrentInstance()
 const topArticle = computed(() => {
   return articleData.value.filter((item, i) => i <= 3)
 })
 
 const getArticleData = async () => {
   const res = await getArticleList()
-  articleData.value = res.data
+  articleData.value = res.data.map(item => ({
+    ...item,
+    publishDate: proxy.$filters.dateTimeFilter(item.publishDate)
+  }))
 }
 
 getArticleData()
