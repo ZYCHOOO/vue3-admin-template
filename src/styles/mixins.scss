@@ -30,14 +30,14 @@
 }
 
 // 单行省略
-@mixin ellipsis {
+@mixin single-ling-ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 // 多行省略
-@mixin multiline-ellipsis($lineNum) {
+@mixin multi-line-ellipsis($lineNum) {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

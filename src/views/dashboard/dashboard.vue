@@ -25,7 +25,7 @@ import ChartContainer from './components/ChartContainer'
   .dashboard-container {
     @include flex-wrap;
   }
-  .avatar-container, .article-container, .chart-container {
+  .avatar-container, .article-container {
     @include container-layout;
     @include flex-column;
   }
