@@ -4,7 +4,7 @@
 
 <script setup>
 import * as echarts from 'echarts'
-import { ref, onBeforeMount, onMounted, defineProps, defineEmits } from 'vue'
+import { ref, onBeforeMount, onMounted, watch, defineProps, defineEmits } from 'vue'
 
 const emits = defineEmits([])
 const props = defineProps({
@@ -22,14 +22,8 @@ const props = defineProps({
   }
 })
 
-const echartId = ref(null)
-
-onBeforeMount(() => {
-  echartId.value = `echarts-id-${parseInt(Math.random() * 1000000)}`
-})
-
-onMounted(() => {
-  var echart = echarts.init(document.getElementById(echartId.value))
+const drawChart = () => {
+  const echart = echarts.init(document.getElementById(echartId.value))
   echart.setOption(props.chartOption, {
     notMerge: true // 不和之前的 option 合并
   })
@@ -38,6 +32,24 @@ onMounted(() => {
       animation: { duration: 300 }
     })
   })
+}
+
+watch(
+  props.chartOption,
+  { deep: true },
+  () => {
+    drawChart()
+  }
+)
+
+const echartId = ref(null)
+
+onBeforeMount(() => {
+  echartId.value = `echarts-id-${parseInt(Math.random() * 1000000)}`
+})
+
+onMounted(() => {
+  drawChart()
 })
 
 </script>

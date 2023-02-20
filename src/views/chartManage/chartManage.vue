@@ -1,11 +1,11 @@
 <template>
   <div class="chart-manage">
     <!-- 环形图 -->
-    <ring-chart />
+    <ring-chart class="chart-manage-item" />
     <!-- 柱状图 -->
-    <bar-chart />
+    <bar-chart class="chart-manage-item" />
     <!-- 折线图 -->
-    <line-chart />
+    <line-chart class="chart-manage-item" />
   </div>
 </template>
 
@@ -18,5 +18,8 @@ import LineChart from './components/LineChart'
 </script>
 
 <style lang="scss" scoped>
-
+  .chart-manage {
+    @include flex-row;
+    @include flex-wrap;
+  }
 </style>
