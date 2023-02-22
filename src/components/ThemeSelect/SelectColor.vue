@@ -22,8 +22,9 @@
 
 <script setup>
 import { useStore } from 'vuex'
-import { generateNewStyle, writeNewStyle } from '@/utils/theme'
+import variables from '@/styles/variables.scss'
 import { ref, defineProps, defineEmits } from 'vue'
+import { generateNewStyle, writeNewStyle } from '@/utils/theme'
 
 defineProps({
   modelValue: { type: Boolean, required: true }
@@ -49,7 +50,7 @@ const predefineColors = [
   '#c7158577'
 ]
 // 默认色值
-const mColor = ref(store.getters.mainColor)
+const mColor = ref(store.getters.mainColor || variables.menuBg)
 
 const emit = defineEmits(['update:modelValue'])
 

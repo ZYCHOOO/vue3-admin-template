@@ -39,6 +39,7 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "axios": "^1.2.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "cz-customizable": "^6.3.0",
     "dayjs": "^1.11.7",
     "eslint": "^6.7.2",

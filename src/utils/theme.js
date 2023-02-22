@@ -31,7 +31,7 @@ export const generateNewStyle = async (primaryColor) => {
 }
 
 export const generateColors = (primary) => {
-  if (!primary) return
+  if (!primary || primary === 'undefined') return
   const colors = {
     primary
   }

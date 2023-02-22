@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import ContextMenu from './ContextMenu'
@@ -39,7 +39,9 @@ const tagHook = () => {
   const route = useRoute()
   const store = useStore()
 
-  const activeColor = ref(store.getters.cssVar.menuBg)
+  const activeColor = computed(() => {
+    return store.getters.cssVar.menuBg
+  })
 
   const isActive = (tag) => {
     return tag.path === route.path

@@ -1,4 +1,4 @@
-import { setStorage } from '@/utils/storage'
+import { getStorage } from '@/utils/storage'
 import { generateColors } from '@/utils/theme'
 import { MAIN_COLOR_KEY } from '@/constant/enums'
 
@@ -11,7 +11,7 @@ const getters = {
   cssVar: (state) => {
     return {
       ...state.theme.variables,
-      ...generateColors(setStorage(MAIN_COLOR_KEY))
+      ...generateColors(getStorage(MAIN_COLOR_KEY))
     }
   },
   userInfo: (state) => state.user.userInfo,
