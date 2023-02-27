@@ -759,14 +759,34 @@ router.beforeEach(async (to, from, next) => {
 
 ### <span id="guide">功能引导</span>
 
+使用 driver.js 实现功能引导，效果图如下：
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/guide.png)
+
 ### <span id="guide">大小屏切换</span>
+
+使用 screenfull 实现大小屏切换，效果图如下：  
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/fullscreen.png)
 
 ### <span id="guide">主题切换</span>
 
+重新升成 css 样式表写入到 style 中，实现主题切换，效果图如下：
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/themeSelect1.png)
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/themeSelect2.png)
+
 ### <span id="guide">多语言支持</span>
+
+使用 vue-i18n 实现中英文切换，效果图如下：
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/langSelect1.png)
+![图片](https://github.com/ZYCHOOO/vue3-admin-template/blob/feature/v1.0.0/src/assets/document-images/langSelect2.png)
 
 ### <span id="guide">富文本组件封装</span>
 
+[富文本组件封装](https://juejin.cn/post/7192502381332922429)
+
 ### <span id="guide">markdown 组件封装</span>
 
+[markdown 组件封装](https://juejin.cn/post/7192519581737910328)
+
 ### <span id="guide">echarts 组件封装</span>
+
+[ecahrts 组件封装](https://juejin.cn/post/7204653355548852261)
