@@ -3,7 +3,7 @@
 基于 Vue3 + Vue-Cli4 + Element-Plus + sass + axios + Echarts5 + Vue-i18n 封装的管理后台模版。集成功能引导、大小屏切换、主题修改、多语言支持，封装了 wangeditor 富文本编辑器、tui-editor md 编辑器、echarts 图表组件。
 
 - 项目地址：[github](https://github.com/ZYCHOOO/vue3-admin-template)
-- 掘金地址：[掘金]()
+- 掘金地址：[掘金](https://juejin.cn/post/7204742468612194361)
 
 ### 项目结构
 
@@ -754,6 +754,19 @@ router.beforeEach(async (to, from, next) => {
 ```
 
 - 单个路由守卫
+
+```
+  {
+    path: '/login',
+    name: 'Login',
+    component: () =>
+      import(/* webpackChunkName: 'login' */ '@/views/login/login'),
+    beforeEnter: (to, from, next) => {
+      const { token } = store.state.user
+      token ? next('/') : next()
+    }
+  }
+```
 
 [🔙 返回顶部](#catalogue)
 
