@@ -13,7 +13,11 @@ export const publicRoutes = [
     path: '/login',
     name: 'Login',
     component: () =>
-      import(/* webpackChunkName: 'login' */ '@/views/login/login')
+      import(/* webpackChunkName: 'login' */ '@/views/login/login'),
+    beforeEnter: (to, from, next) => {
+      const { token } = store.state.user
+      token ? next('/') : next()
+    }
   },
   {
     path: '/',
@@ -59,7 +63,7 @@ export function resetRouter () {
     store.getters.userInfo.permission &&
     store.getters.userInfo.permission.menus
   ) {
-    const menus = store.getters.pemission.menus
+    const menus = store.getters.permission.menus
     menus.forEach((menu) => {
       router.removeRoute(menu)
     })
