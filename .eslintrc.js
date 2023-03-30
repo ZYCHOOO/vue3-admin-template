@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'vue/no-unused-vars': 'off',
     'no-unused-vars': 'off',
+    'no-undef': 'off',
     'handle-callback-err': 'off',
     'prefer-promise-reject-errors': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

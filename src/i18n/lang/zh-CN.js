@@ -11,7 +11,9 @@ export default {
   },
   route: {
     dashboard: '首页',
+    visual: '可视化',
     chartManage: '数据可视化',
+    mapManage: '地图可视化',
     user: '用户',
     userManage: '用户管理',
     roleManage: '角色管理',

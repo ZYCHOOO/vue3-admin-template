@@ -11,7 +11,9 @@ export default {
   },
   route: {
     dashboard: 'dashboard',
+    visual: 'visual',
     chartManage: 'chartManage',
+    mapManage: 'mapManage',
     user: 'user',
     userManage: 'userManage',
     roleManage: 'roleManage',
