@@ -81,7 +81,7 @@ const { visible, selectIndex, menuStyle, openMenu, closeMenu } = menuHook()
 
 <style lang="scss" scoped>
 .tags-view-container {
-  height: 34px;
+  height: $tagsViewHeight;
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;

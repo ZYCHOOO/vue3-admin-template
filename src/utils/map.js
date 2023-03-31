@@ -17,6 +17,7 @@ export function initBdMapScript () {
     const script = document.createElement('script')
     script.setAttribute('type', 'text/javascript')
     script.setAttribute('src', bdMapUrl)
+    script.setAttribute('class', 'loadMap')
     document.body.appendChild(script)
   })
 }

@@ -24,6 +24,6 @@ const init = () => {
 .bd-map {
   // 注意给dom宽高，不然地图不出来
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - #{$navbarHeight} - #{$tagsViewHeight} - #{$marginGap} * 2);
 }
 </style>

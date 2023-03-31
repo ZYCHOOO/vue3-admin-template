@@ -68,7 +68,7 @@ watchSwitchLang(() => {
 .app-main {
   padding: 104px 20px 20px 20px;
   position: relative;
-  min-height: calc(100vh - 50px - 43px);
+  min-height: calc(100vh - #{$navbarHeight} - #{$tagsViewHeight});
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
